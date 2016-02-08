@@ -86,7 +86,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func doSlider(sender: AnyObject) {
-        
+        count = Int(mySlider.value)
+        updateCountLabel()
     }
 
 }
