@@ -39,6 +39,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func doTapGesture(sender: AnyObject) {
+        myNameTextField.resignFirstResponder()
+        myNumberTextField.resignFirstResponder()
     }
     
     override func viewDidLoad() {
@@ -48,8 +50,17 @@ class ViewController: UIViewController {
         mySlider.value = 0.0
         // Do any additional setup after loading the view, typically from a nib.
     }
-    @IBAction func doSegementedChangeBackground(sender: AnyObject) {
-        
+    @IBAction func doSegementedChangeBackground(sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex{
+        case 0:
+            view.backgroundColor = UIColor.whiteColor()
+        case 1:
+            view.backgroundColor = UIColor.redColor()
+        case 2:
+            view.backgroundColor = UIColor.greenColor()
+        default:
+            return
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,6 +69,12 @@ class ViewController: UIViewController {
     }
 
     @IBAction func doShowInAlertView(sender: AnyObject) {
+        
+        let msg = myNameTextField.text! + "\n" + myNumberTextField.text!
+        let alert = UIAlertView(title: "LOOK", message: msg, delegate: nil, cancelButtonTitle: "OK")
+        
+        alert.show()
+        
     }
 
     @IBAction func doMySwitch(sender: AnyObject) {
