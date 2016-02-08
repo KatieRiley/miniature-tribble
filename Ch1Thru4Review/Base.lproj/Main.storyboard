@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,18 +18,128 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Program By Katie Hoskins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIt-AA-a7b">
-                                <rect key="frame" x="98" y="83" width="198" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count = 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1T-Ms-2M9">
+                                <rect key="frame" x="20" y="28" width="225" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RfM-Dg-gNz">
+                                <rect key="frame" x="20" y="57" width="115" height="30"/>
+                                <state key="normal" title="Increment Count"/>
+                                <connections>
+                                    <action selector="doIncremetCount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MrS-zT-SsR"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="liy-aC-LOP">
+                                <rect key="frame" x="20" y="95" width="560" height="29"/>
+                                <segments>
+                                    <segment title="White"/>
+                                    <segment title="Red"/>
+                                    <segment title="Green"/>
+                                </segments>
+                                <connections>
+                                    <action selector="doSegementedChangeBackground:" destination="BYZ-38-t0r" eventType="valueChanged" id="GA5-IB-Ruc"/>
+                                </connections>
+                            </segmentedControl>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Your Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JNQ-ep-hdd">
+                                <rect key="frame" x="20" y="187" width="328" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="328" id="x3z-3B-fEy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="da8-rk-bu7">
+                                <rect key="frame" x="20" y="232" width="328" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K3t-07-1zK">
+                                <rect key="frame" x="20" y="277" width="139" height="30"/>
+                                <state key="normal" title="Show in UIAlertView"/>
+                                <connections>
+                                    <action selector="doShowInAlertView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bOj-Mr-SwS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kkN-5d-q8H">
+                                <rect key="frame" x="20" y="315" width="225" height="30"/>
+                                <state key="normal" title="Clear Count using UIActionSheet"/>
+                                <connections>
+                                    <action selector="doClearCount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Ms-Oi-Fgx"/>
+                                </connections>
+                            </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="qCQ-b0-S7m">
+                                <rect key="frame" x="18" y="371" width="332" height="31"/>
+                                <connections>
+                                    <action selector="doSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="rpi-PN-XeT"/>
+                                </connections>
+                            </slider>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WkC-81-lZ7">
+                                <rect key="frame" x="196" y="277" width="51" height="31"/>
+                                <connections>
+                                    <action selector="doMySwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="6Hi-hY-YZc"/>
+                                </connections>
+                            </switch>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ySa-tJ-ilP">
+                                <rect key="frame" x="20" y="131" width="560" height="29"/>
+                                <segments>
+                                    <segment title="1X"/>
+                                    <segment title="2X"/>
+                                    <segment title="3X"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="JNQ-ep-hdd" firstAttribute="top" secondItem="ySa-tJ-ilP" secondAttribute="bottom" constant="28" id="5aC-Nq-H5O"/>
+                            <constraint firstItem="da8-rk-bu7" firstAttribute="top" secondItem="JNQ-ep-hdd" secondAttribute="bottom" constant="15" id="9Yr-T3-Lk8"/>
+                            <constraint firstItem="qCQ-b0-S7m" firstAttribute="trailing" secondItem="da8-rk-bu7" secondAttribute="trailing" id="EVD-fB-aPU"/>
+                            <constraint firstItem="ySa-tJ-ilP" firstAttribute="trailing" secondItem="liy-aC-LOP" secondAttribute="trailing" id="Hf9-aB-HCq"/>
+                            <constraint firstItem="kkN-5d-q8H" firstAttribute="leading" secondItem="qCQ-b0-S7m" secondAttribute="leading" id="I78-tn-wm3"/>
+                            <constraint firstItem="z1T-Ms-2M9" firstAttribute="leading" secondItem="RfM-Dg-gNz" secondAttribute="leading" id="Lol-E8-MKH"/>
+                            <constraint firstItem="JNQ-ep-hdd" firstAttribute="trailing" secondItem="da8-rk-bu7" secondAttribute="trailing" id="OOv-MQ-nFI"/>
+                            <constraint firstItem="WkC-81-lZ7" firstAttribute="top" secondItem="K3t-07-1zK" secondAttribute="top" id="Ocj-dG-Cvw"/>
+                            <constraint firstItem="liy-aC-LOP" firstAttribute="leading" secondItem="RfM-Dg-gNz" secondAttribute="leading" id="PmA-W2-2yK"/>
+                            <constraint firstItem="ySa-tJ-ilP" firstAttribute="leading" secondItem="JNQ-ep-hdd" secondAttribute="leading" id="XvW-Bx-ZBb"/>
+                            <constraint firstItem="kkN-5d-q8H" firstAttribute="leading" secondItem="K3t-07-1zK" secondAttribute="leading" id="ZzH-rL-Rk8"/>
+                            <constraint firstItem="z1T-Ms-2M9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="a9Z-We-cJa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="liy-aC-LOP" secondAttribute="trailing" id="bc4-RR-brF"/>
+                            <constraint firstItem="WkC-81-lZ7" firstAttribute="trailing" secondItem="kkN-5d-q8H" secondAttribute="trailing" id="fBn-d6-coN"/>
+                            <constraint firstItem="K3t-07-1zK" firstAttribute="top" secondItem="da8-rk-bu7" secondAttribute="bottom" constant="15" id="glr-NZ-qiX"/>
+                            <constraint firstItem="WkC-81-lZ7" firstAttribute="trailing" secondItem="z1T-Ms-2M9" secondAttribute="trailing" id="h3I-Me-4AW"/>
+                            <constraint firstItem="liy-aC-LOP" firstAttribute="leading" secondItem="ySa-tJ-ilP" secondAttribute="leading" id="inz-t1-ZnA"/>
+                            <constraint firstItem="kkN-5d-q8H" firstAttribute="top" secondItem="K3t-07-1zK" secondAttribute="bottom" constant="8" symbolic="YES" id="jOJ-sC-w46"/>
+                            <constraint firstItem="RfM-Dg-gNz" firstAttribute="top" secondItem="z1T-Ms-2M9" secondAttribute="bottom" constant="8" symbolic="YES" id="m10-OH-Ntl"/>
+                            <constraint firstItem="qCQ-b0-S7m" firstAttribute="top" secondItem="kkN-5d-q8H" secondAttribute="bottom" constant="26" id="r2M-fu-Vxp"/>
+                            <constraint firstItem="da8-rk-bu7" firstAttribute="leading" secondItem="JNQ-ep-hdd" secondAttribute="leading" id="w9Y-dk-12r"/>
+                            <constraint firstItem="da8-rk-bu7" firstAttribute="leading" secondItem="K3t-07-1zK" secondAttribute="leading" id="wVD-Jh-Wxp"/>
+                            <constraint firstItem="da8-rk-bu7" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-53" id="xLV-vo-Hz2"/>
+                            <constraint firstItem="JNQ-ep-hdd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="y1R-8G-CTa"/>
+                            <constraint firstItem="liy-aC-LOP" firstAttribute="top" secondItem="RfM-Dg-gNz" secondAttribute="bottom" constant="8" symbolic="YES" id="yFs-bL-AAA"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="5zD-PD-O39" appends="YES" id="OcC-z7-Ak6"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="myCountLabel" destination="z1T-Ms-2M9" id="hgW-uf-GtU"/>
+                        <outlet property="myNameTextField" destination="JNQ-ep-hdd" id="EO2-tx-LoB"/>
+                        <outlet property="myNumberTextField" destination="da8-rk-bu7" id="8rd-78-4RM"/>
+                        <outlet property="mySegmentedControlCountIncrement" destination="ySa-tJ-ilP" id="NoL-EJ-cWY"/>
+                        <outlet property="mySlider" destination="qCQ-b0-S7m" id="1Sj-ja-OBo"/>
+                        <outlet property="mySwitch" destination="WkC-81-lZ7" id="kKG-Sp-KEP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="5zD-PD-O39">
+                    <connections>
+                        <action selector="doTapGesture:" destination="BYZ-38-t0r" id="IjT-Yg-gCs"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="305" y="418"/>
         </scene>
     </scenes>
 </document>
