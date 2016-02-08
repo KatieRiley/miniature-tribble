@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIActionSheetDelegate {
 
     var count = 0
     @IBOutlet weak var myCountLabel: UILabel!
@@ -78,11 +78,32 @@ class ViewController: UIViewController {
     }
 
     @IBAction func doMySwitch(sender: AnyObject) {
+        if mySwitch.on {
+            print("Switch ON")
+            NSLog("Switch ON")
+        }
+        else {
+            print("Switch OFF")
+            NSLog("Switch OFF")
+        }
+    }
+    
+    func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
+        print("Button Index: " + String(buttonIndex))
         
+        if buttonIndex == 0{
+            count = 0
+            updateCountLabel()
+            //I added this part because I'm a tad OCD and it was driving me 
+            //crazy that the slider didn't reset also
+            mySlider.value = 0.0
+        }
     }
     
     @IBAction func doClearCount(sender: AnyObject) {
+        let action = UIActionSheet(title: "Confirm Clearing Count", delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: "Clear Count")
         
+        action.showInView(view)
     }
     
     @IBAction func doSlider(sender: AnyObject) {
